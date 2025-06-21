@@ -1,0 +1,35 @@
+<html lang="ru">
+
+<head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css">
+    <title>Notification Message</title>
+</head>
+
+<body>
+
+<div id="app" class="ui container">
+    <h1>Notification Center</h1>
+
+    <!-- Types: info, warning, error, success -->
+    <notification-message header="Какой-то текст" type="warning">
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eius et excepturi incidunt nemo nobis reprehenderit
+        vel.
+    </notification-message>
+
+</div>
+
+<script type="text/x-template" id="notification-message-template">
+    <div class="ui message" :class="[{hidden: isHidden}, type]">
+        <i @click="hide" class="close icon"></i>
+        <div class="header">
+            {{header}}
+        </div>
+        <slot></slot>
+    </div>
+</script>
+
+<script src="https://unpkg.com/vue@3"></script>
+<script src="notification-message.js"></script>
+</body>
+
+</html>
